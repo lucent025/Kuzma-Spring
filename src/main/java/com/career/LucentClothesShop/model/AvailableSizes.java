@@ -20,6 +20,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AvailableSizes {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "products_id")
+    private Products product;
+    
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -28,7 +32,5 @@ public class AvailableSizes {
 	@Column(name = "sizes")
 	private String sizes;
 	
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "products_id")
-    private Products product;
+
 }

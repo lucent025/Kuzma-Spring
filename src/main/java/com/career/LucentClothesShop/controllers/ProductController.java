@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.career.LucentClothesShop.model.Products;
+import com.career.LucentClothesShop.dto.ProductDTO;
 import com.career.LucentClothesShop.services.ProductService;
 
 @RestController
@@ -19,7 +19,7 @@ public class ProductController {
 	private ProductService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Products>> getAllProducts() {
-		return new ResponseEntity<List<Products>>(service.allProducts(), HttpStatus.OK);
+	public ResponseEntity<List<ProductDTO>> getAllProducts() {
+		return new ResponseEntity<List<ProductDTO>>(service.allProducts(), HttpStatus.OK);
 	}
 }

@@ -61,9 +61,9 @@ public class Products {
 	@Column(name = "imageUrl")
 	private String imageUrl;
 	
-//    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-//    private List<AvailableSizes> availableSizes;
-//
-//    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-//    private List<AdditionalImageUrls> additionalImageUrls;
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<AvailableSizes> availableSizes;
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<AdditionalImageUrls> additionalImageUrls;
 }

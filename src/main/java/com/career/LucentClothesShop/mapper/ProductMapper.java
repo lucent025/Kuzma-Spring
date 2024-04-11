@@ -23,8 +23,20 @@ public class ProductMapper {
         dto.setBrandName(product.getBrandName());
         dto.setProductCode(product.getProductCode());
         dto.setImageUrl(product.getImageUrl());
-        dto.setAvailableSizes(product.getAvailableSizes().stream().map(AvailableSizes::getSizes).collect(Collectors.toList()));
-        dto.setAdditionalImageUrls(product.getAdditionalImageUrls().stream().map(AdditionalImageUrls::getValue).collect(Collectors.toList()));
+        dto.setAvailableSizes(
+        		product.getAvailableSizes()
+        		.stream().map(AvailableSizes::getSizes)
+        		.collect(Collectors.toList()));
+        dto.setAdditionalImageUrls(
+        		product.getAdditionalImageUrls()
+        		.stream()
+        		.map(AdditionalImageUrls::getValue)
+        		.collect(Collectors.toList()));
+        dto.setReviews(
+        		product.getReviews()
+        		.stream()
+        		.map(ReviewsMapper::toDTO)
+        		.collect(Collectors.toList()));
         return dto;
 	}
 }

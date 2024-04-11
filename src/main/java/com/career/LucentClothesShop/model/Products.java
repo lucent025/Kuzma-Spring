@@ -66,4 +66,7 @@ public class Products {
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<AdditionalImageUrls> additionalImageUrls;
+    
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<Reviews> reviews;
 }

@@ -25,4 +25,5 @@ public class ProductDTO {
     private String imageUrl;
     private List<String> availableSizes;
     private List<String> additionalImageUrls;
+    private List<ReviewsDTO> reviews;
 }

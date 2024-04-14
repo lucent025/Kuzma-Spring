@@ -1,5 +1,6 @@
 package com.career.LucentClothesShop.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,10 @@ public class ProductController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Optional<ProductDTO>> getSingleProduct(@PathVariable int id) {
 		return new ResponseEntity<Optional<ProductDTO>>(service.getSingleProduct(id), HttpStatus.OK);
+	}
+	
+	@GetMapping("/filter/{brandName}")
+	public ResponseEntity<List<ProductDTO>> getProductsByBrandName(@PathVariable String brandName) {
+		return new ResponseEntity<List<ProductDTO>>(service.getProductsByBrand(brandName), HttpStatus.OK);
 	}
 }

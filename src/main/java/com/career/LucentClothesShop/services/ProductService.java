@@ -40,4 +40,9 @@ public class ProductService {
 				.map(ProductMapper::toDTO)
 				.collect(Collectors.toList());
 	}
+	
+	public Page<ProductDTO> getProductByKeyWord(String key, Pageable page) {
+		Page<Products> products = productRepository.findProductByKeyWord(key, page);
+		return products.map(ProductMapper::toDTO);
+	}
 }

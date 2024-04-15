@@ -35,8 +35,14 @@ public class ProductController {
 		return new ResponseEntity<Optional<ProductDTO>>(service.getSingleProduct(id), HttpStatus.OK);
 	}
 	
-	@GetMapping("/filter/{brandName}")
+	@GetMapping("/brand/{brandName}")
 	public ResponseEntity<List<ProductDTO>> getProductsByBrandName(@PathVariable String brandName) {
 		return new ResponseEntity<List<ProductDTO>>(service.getProductsByBrand(brandName), HttpStatus.OK);
+	}
+	
+	@GetMapping("/search")
+	public ResponseEntity<Page<ProductDTO>> getProductByKeyWord(@RequestParam String key ,@RequestParam int page, @RequestParam int limit) {
+		Pageable pageable = PageRequest.of(page, limit);
+		return new ResponseEntity<Page<ProductDTO>>(service.getProductByKeyWord(key, pageable), HttpStatus.OK);
 	}
 }

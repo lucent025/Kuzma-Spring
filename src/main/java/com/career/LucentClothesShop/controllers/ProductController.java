@@ -40,6 +40,11 @@ public class ProductController {
 		return new ResponseEntity<List<ProductDTO>>(service.getProductsByBrand(brandName), HttpStatus.OK);
 	}
 	
+	@GetMapping("/category/{category}")
+	public ResponseEntity<List<ProductDTO>> getProductsByCategory(@PathVariable String category) {
+		return new ResponseEntity<List<ProductDTO>>(service.getProductsByCategory(category), HttpStatus.OK);
+	}
+	
 	@GetMapping("/search")
 	public ResponseEntity<Page<ProductDTO>> getProductByKeyWord(@RequestParam String key ,@RequestParam int page, @RequestParam int limit) {
 		Pageable pageable = PageRequest.of(page, limit);

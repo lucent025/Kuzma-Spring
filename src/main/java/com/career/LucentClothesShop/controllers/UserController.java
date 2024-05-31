@@ -35,7 +35,7 @@ public class UserController {
 			if (user.getUser_password().equals(currentUser.getUser_password())) {
 				return new ResponseEntity<Optional<Users>>(currentUserOptional, HttpStatus.OK);
 			} else {
-				return new ResponseEntity<>(Optional.empty()	, HttpStatus.UNAUTHORIZED);
+				return new ResponseEntity<>(Optional.empty(), HttpStatus.UNAUTHORIZED);
 			}
 		} else {
 			return new ResponseEntity<>(Optional.empty(), HttpStatus.NOT_FOUND);
